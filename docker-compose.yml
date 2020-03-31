@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "9999:80"
